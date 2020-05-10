@@ -1,0 +1,4 @@
+type: string
+description: 'Read-only timestamp, automatically assigned by the platform.'
+format: date-time
+readOnly: true

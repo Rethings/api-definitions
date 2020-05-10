@@ -1,0 +1,48 @@
+parameters:
+  - $ref: ../components/parameters/path/userId.yaml
+get:
+  security:
+    - UserToken: []
+  tags:
+    - Users
+  summary: Retrieve a User's account
+  operationId: GetUser
+  description: |
+    Retrieve a user's account
+  responses:
+    '200':
+      description: A user's account was retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/User.yaml
+put:
+  security:
+    - UserToken: []
+  tags:
+    - Users
+  summary: Update a User's account
+  operationId: UpdateUser
+  description: |
+    Update a user's account
+  requestBody:
+    $ref: ../components/requests/User.yaml
+  responses:
+    '200':
+      description: A user's account was updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Consumer.yaml
+delete:
+  security:
+    - UserToken: []
+  tags:
+    - Users
+  summary: Deactivate a User's account
+  operationId: DeactivateUser
+  description: |
+    Deactivate a user's account
+  responses:
+    '204':
+      description: A user's account was deactivated successfully

@@ -1,0 +1,11 @@
+type: object
+required:
+  - rel
+allOf:
+  - $ref: ./Link.yaml
+properties:
+  rel:
+    description: The link type
+    type: string
+    enum:
+      - sandbox

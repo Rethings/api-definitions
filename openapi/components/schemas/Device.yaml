@@ -1,0 +1,50 @@
+type: object
+properties:
+  id:
+    description: |
+      Device's identifier. If not provided, a generated identifier
+      will be provided.
+    allOf:
+      - $ref: ./ResourceId.yaml
+    example: dev_9XajmB3tdd6jxpCdYwnyIlxm2WzI
+    readOnly: true
+  name:
+    type: string
+    maxLength: 255
+    minLength: 1
+    description: Device's label or name
+  metadata:
+    allOf:
+        - $ref: ./Metadata.yaml
+    example:
+      room: Kitchen
+      appliance: Center Light
+  tags:
+    description: Device's tags
+    type: array
+    maxItems: 10
+    items:
+      type: string
+      minLength: 1
+      maxLength: 20
+    example:
+      - appliance
+      - rgb
+      - brightness
+  createdAt:
+    description: Device's registration/creation timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  updatedAt:
+    description: Device's last update timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    items:
+      allOf:
+        - $ref: ./Links/SelfLink.yaml

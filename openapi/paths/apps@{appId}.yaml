@@ -1,0 +1,48 @@
+parameters:
+  - $ref: ../components/parameters/path/appId.yaml
+get:
+  security:
+    - UserToken: []
+  tags:
+    - Apps
+  summary: Retrieve an App
+  description: |
+    Retrieve an app.
+  operationId: GetApp
+  responses:
+    '200':
+      description: An app was retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/App.yaml
+put:
+  security:
+    - UserToken: []
+  tags:
+    - Apps
+  summary: Update an App
+  operationId: UpdateApp
+  description: |
+    Update an app.
+  requestBody:
+    $ref: ../components/requests/App.yaml
+  responses:
+    '200':
+      description: An app was updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/App.yaml
+delete:
+  security:
+    - UserToken: []
+  tags:
+    - Apps
+  summary: Deactivate an App
+  operationId: DeactivateApp
+  description: |
+    Deactivate an app.
+  responses:
+    '204':
+      description: An app was deactivated successfully

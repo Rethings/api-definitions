@@ -1,0 +1,8 @@
+name: id
+in: path
+description: The resource identifier
+required: true
+schema:
+  type: string
+  maxLength: 64
+  pattern: '^[\-\_\w]+[:\.\-\_\w]*$'

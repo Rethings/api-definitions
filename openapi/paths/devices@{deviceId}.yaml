@@ -1,0 +1,65 @@
+parameters:
+  - $ref: ../components/parameters/header/appId.yaml
+  - $ref: ../components/parameters/path/deviceId.yaml
+get:
+  tags:
+    - Devices
+  summary: Retrieve a Device's description
+  description: |
+    Retrieve a device's description.
+  operationId: GetDevice
+  responses:
+    '200':
+      description: A device's description was retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Device.yaml
+put:
+  tags:
+    - Devices
+  summary: Update a Device's description
+  operationId: UpdateDevice
+  description: |
+    Update a device's description
+  requestBody:
+    $ref: ../components/requests/Device.yaml
+  responses:
+    '200':
+      description: A device's description was updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Device.yaml
+post:
+  tags:
+    - Devices
+  summary: Register a Device with Predefined ID
+  operationId: RegisterDeviceWithId
+  description: |
+    Register a device with predefined identifier. It is useful if you wish the device to use its own
+    identifier (i.e. MAC Address, Serial Number)
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Device.yaml
+    description: Device resource
+    required: true
+  responses:
+    '201':
+      description: A device was registered successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Device.yaml
+delete:
+  tags:
+    - Devices
+  summary: Deactivate a Device
+  operationId: DeactivateDevice
+  description: |
+    Deactivate a device
+  responses:
+    '204':
+      description: A device was deactivated successfully

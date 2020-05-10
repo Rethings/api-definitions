@@ -1,0 +1,37 @@
+parameters:
+  - $ref: ../components/parameters/header/appId.yaml
+post:
+  tags:
+    - Devices
+  summary: Register a Device
+  operationId: RegisterDevice
+  description: |
+    Register a device.
+  requestBody:
+    $ref: ../components/requests/Device.yaml
+  responses:
+    '201':
+      description: A device was registered successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Device.yaml
+get:
+  tags:
+    - Devices
+  summary: List owned Devices
+  description: |
+    List the devices owned by the currently logged Consumer.
+  operationId: ListDevices
+  parameters:
+    - $ref: ../components/parameters/query/collectionLimit.yaml
+    - $ref: ../components/parameters/query/collectionOffset.yaml
+  responses:
+    '200':
+      description: A list of devices was retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/Device.yaml

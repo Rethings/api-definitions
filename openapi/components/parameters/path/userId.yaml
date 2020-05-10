@@ -1,0 +1,7 @@
+name: userId
+in: path
+description: The User's identifier
+required: true
+schema:
+  $ref: ../../schemas/ResourceId.yaml
+example: usr_9XajmB3tdd6jxpCdYwnyIlxm2WzI

@@ -1,0 +1,14 @@
+post:
+  tags:
+    - Users
+  summary: Login a User
+  operationId: LoginUser
+  description: |
+    Login a user.
+  requestBody:
+    $ref: ../components/requests/UserLogin.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/UserLoggedInWithToken.yaml
+    '204':
+      $ref: ../components/responses/UserLoggedInWithCookie.yaml

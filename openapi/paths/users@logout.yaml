@@ -1,0 +1,10 @@
+post:
+  tags:
+    - Users
+  summary: Logout a User
+  operationId: LogoutUser
+  description: |
+    Logout a user.
+  responses:
+    '204':
+      description: A user was logged out successfully

@@ -1,0 +1,7 @@
+name: keyId
+in: path
+description: The API Key's identifier
+required: true
+schema:
+  $ref: ../../schemas/ResourceId.yaml
+example: sk_ytHG4x2usyjL1PJmhoCoJR4MoJEet

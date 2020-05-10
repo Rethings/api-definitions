@@ -1,0 +1,64 @@
+type: object
+required:
+  - name
+  - publicKey
+properties:
+  id:
+    description: App's identifier.
+    allOf:
+      - $ref: ./ResourceId.yaml
+    example: app_9XajmB3tdd6jxpCdYwnyIlxm2WzI
+    readOnly: true
+  name:
+    description: App's Name
+    type: string
+    maxLength: 255
+    minLength: 1
+    example: BusTrack
+  publicKey:
+    description: |
+      App's public key.
+
+      This value will be used to verify the Consumer's JWT.
+    type: string
+  type:
+    description: The Apps's type
+    type: string
+    enum:
+      - live
+      - sandbox
+    readOnly: true
+  status:
+    description: App's status
+    type: string
+    enum:
+      - active
+      - inactive
+    readOnly: true
+  deactivatedAt:
+    description: |
+      App's deactivation timestamp.
+
+      This property is visible only if the status is `inactive`.
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  createdAt:
+    description: App's registration timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  updatedAt:
+    description: App's last update timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    items:
+      anyOf:
+        - $ref: ./Links/SelfLink.yaml
+        - $ref: ./Links/SandboxLink.yaml
+        - $ref: ./Links/LiveLink.yaml

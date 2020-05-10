@@ -1,0 +1,16 @@
+parameters:
+  - $ref: ../components/parameters/path/appId.yaml
+  - $ref: ../components/parameters/path/keyId.yaml
+
+delete:
+  security:
+    - UserToken: []
+  tags:
+    - Apps
+  summary: Invalidate an App's API Key
+  description: |
+    Invalidate an app's API key.
+  operationId: InvalidateApiKey
+  responses:
+    '204':
+      description: An API key was invalidated successfully

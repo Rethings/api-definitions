@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  version: '1.0'
+  title: Rethings REST API
+  contact:
+    name: Rethings API Support
+    url: 'https://rethings.io/contact/'
+    email: integrations@rethings.io
+#  license:
+#    name: Rethings
+#    url: 'https://www.rethings.io/api-license/'
+#  termsOfService: 'https://www.rebilly.com/terms-of-use/'
+  x-logo:
+    url: '/rethings-logo.svg'
+  description:
+    $ref: core-description.md
+servers:
+  - url: 'https://api.rethings.io'
+    description: API Server
+  - url: 'mqtts://mq.rethings.io'
+    description: MQTT Server
+  - url: 'wss://mq.rethings.io'
+    description: MQTT over Websockets Server
+tags:
+  - name: Consumers
+    description: |
+      A Consumer represents a person that ultimately uses the products and apps built with Rethings.
+  - name: Devices
+    description: |
+      A Device represents a physical entity that connects to the internet. This could be household appliances,
+      wearable technologies, and other connected objects.
+
+      ##  Device Reset
+      On first use or on hard/factory reset, devices **must** publish a reset message via MQTT.
+
+      All Devices will have access to specific channel: `$reset/<Device ID>`.
+      MQTT credentials will simply be `username:device` with empty password and the Device ID as MQTT Client ID.
+
+      The message should contain the App's `reset` type API Key, wherein the App is where the device is integrated to.
+
+security:
+  - ConsumerJWT: []
+  - SecretApiKey: []
+paths:
+  /consumers:
+    $ref: ./paths/consumers.yaml
+  /consumers/{consumerId}:
+    $ref: ./paths/consumers@{consumerId}.yaml
+  /consumers/{consumerId}/mqtt-credentials:
+    $ref: ./paths/consumers@{consumerId}@mqttCredentials.yaml
+  /devices:
+    $ref: ./paths/devices.yaml
+  /devices/{deviceId}:
+    $ref: ./paths/devices@{deviceId}.yaml
+  /devices/{deviceId}/mqtt-credentials:
+    $ref: ./paths/devices@{deviceId}@mqttCredentials.yaml
+
+components:
+  securitySchemes:
+    ConsumerJWT:
+      $ref: components/security/ConsumerJWT.yaml
+    SecretApiKey:
+      $ref: components/security/SecretApiKey.yaml

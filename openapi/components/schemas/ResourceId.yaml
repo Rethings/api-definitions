@@ -1,0 +1,5 @@
+type: string
+description: The resource ID.
+maxLength: 64
+pattern: '^[\-\_\w]+[:\.\-\_\w]*$'
+example: res_GBPsy5dTLXpM2KeXhcKRdFUuCJsu

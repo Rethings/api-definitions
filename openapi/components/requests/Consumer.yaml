@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/Consumer.yaml
+description: Consumer resource
+required: true

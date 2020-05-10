@@ -1,0 +1,54 @@
+type: object
+description: API Key resource
+required:
+  - type
+  - value
+  - description
+properties:
+  key:
+    description: API Key's token value
+    type: string
+    maxLength: 64
+    minLength: 16
+    pattern: '^[\-\_\w]+[:\.\-\_\w]*$'
+    readOnly: true
+  type:
+    description: API Key's type
+    type: string
+    enum:
+      - secret
+      - reset
+  description:
+    description: API Key's label or description
+    type: string
+    maxLength: 255
+    minLength: 1
+  status:
+    description: API Key's status
+    type: string
+    enum:
+      - active
+      - invalidated
+    readOnly: true
+  invalidatedAt:
+    description: |
+      The API Key's invalidation timestamp.
+
+      This property is visible only if the status is `invalidated`.
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  createdAt:
+    description: API Key's creation timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    items:
+      anyOf:
+        - $ref: ./Links/SelfLink.yaml
+        - $ref: ./Links/AppLink.yaml
+

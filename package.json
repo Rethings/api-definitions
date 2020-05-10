@@ -1,0 +1,15 @@
+{
+  "name": "rethings-api",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@redocly/openapi-cli": "^0.12.7"
+  },
+  "scripts": {
+    "start:core-api": "openapi preview-docs ./openapi/core.yaml",
+    "start:management-api": "openapi preview-docs ./openapi/management.yaml",
+    "build": "openapi bundle -o dist",
+    "test": "openapi validate",
+    "gh-pages": "echo \"Not implemented\""
+  }
+}

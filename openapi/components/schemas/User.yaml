@@ -1,0 +1,57 @@
+type: object
+required:
+  - name
+  - email
+properties:
+  id:
+    description: |
+      User's identifier.
+    allOf:
+      - $ref: ./ResourceId.yaml
+    example: usr_9XajmB3tdd6jxpCdYwnyIlxm2WzI
+    readOnly: true
+  name:
+    type: string
+    maxLength: 255
+    minLength: 1
+    description: User's full name
+    example: Jane Doe
+  email:
+    description: User's email address
+    type: string
+    format: email
+    maxLength: 100
+  password:
+    description: User's password
+    type: string
+    format: password
+    writeOnly: true
+  mobileNumber:
+    description: User's mobile number (used for OTP and/or SMS alerts)
+    type: string
+    example: '+639771234567'
+  status:
+    description: User's account status
+    type: string
+    enum:
+      - active
+      - inactive
+      - pending-confirmation
+    readOnly: true
+  createdAt:
+    description: User's registration timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  updatedAt:
+    description: User's last update timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    items:
+      allOf:
+        - $ref: ./Links/SelfLink.yaml

@@ -1,0 +1,42 @@
+post:
+  security:
+    - UserToken: []
+  tags:
+    - Apps
+  summary: Create an App
+  operationId: CreateApp
+  description: |
+    Create an app.
+
+    This endpoint creates two versions -- the `live` version for production and the `sandbox` version for testing.
+    The `sandbox` app's details can be retrieved via the resource's `_links` property.
+  requestBody:
+    $ref: ../components/requests/App.yaml
+  responses:
+    '201':
+      description: An app was created successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/App.yaml
+get:
+  security:
+    - UserToken: []
+  tags:
+    - Apps
+  summary: List Apps
+  operationId: ListApps
+  parameters:
+    - $ref: ../components/parameters/query/collectionLimit.yaml
+    - $ref: ../components/parameters/query/collectionOffset.yaml
+  description: |
+    List all created apps.
+  responses:
+    '200':
+      description: A list of apps was retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/App.yaml

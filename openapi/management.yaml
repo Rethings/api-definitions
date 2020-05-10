@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  version: '1.0'
+  title: Rethings Management REST API
+  contact:
+    name: Rethings API Support
+    url: 'https://rethings.io/contact/'
+    email: integrations@rethings.io
+#  license:
+#    name: Rethings
+#    url: 'https://www.rethings.io/api-license/'
+#  termsOfService: 'https://www.rebilly.com/terms-of-use/'
+  x-logo:
+    url: '/rethings-logo.svg'
+  description:
+    $ref: description.md
+servers:
+  - url: 'https://api.rethings.io'
+    description: API Server
+  - url: 'mqtts://mq.rethings.io'
+    description: MQTT Server
+  - url: 'wss://mq.rethings.io'
+    description: MQTT over Websockets Server
+tags:
+  - name: Users
+    description: |
+      A User represents a person who can login to Rethings.
+  - name: Apps
+    description: |
+      Integrations of Consumers with Rethings are represented by an App.
+
+      An App is provided with an *identifier* that is used to access all **Core API** operations.
+
+      In Rethings, a created App (`live`) is partnered with a `sandbox` version of itself. The `sandbox` version
+      is helpful during development to test out your product with dummy resources. Use the `sandbox` version
+      to not clutter the data gathered by your `live` App.
+
+      Each user has a limit of 10 Apps only (a `live` and its `sandbox` App is counted as one). If you need more than
+      10 Apps, please contact our support team.
+
+      # App API Keys
+      There are two types of app API keys: `secret` and `reset`.
+
+      ## Secret Key
+      Secret keys allows you to access **Core API** operations. If needed, a consumer's identifier can be provided
+      via a query parameter `cid` (example: `/devices?cid=con_9XajmB3tdd6jxpCdYwnyIlxm2WzI`).
+
+      A secret key must be provided via header `X-API-KEY`.
+
+      ## Reset Key
+      A reset key should be part of the device's firmware. It allows the device to trigger a reset event on first use
+      or on factory/hard reset (i.e. transfer of ownership).
+
+      With this key, the device is allowed to deactivate itself to have a clean slate. If the device has an
+      owner (consumer) currently registered, the owner will be notified. An approval is needed before another
+      owner can register the device.
+
+paths:
+  /users:
+    $ref: ./paths/users.yaml
+  /users/login:
+    $ref: ./paths/users@login.yaml
+  /users/logout:
+    $ref: ./paths/users@logout.yaml
+  /users/{userId}:
+    $ref: ./paths/users@{userId}.yaml
+  /apps:
+    $ref: ./paths/apps.yaml
+  /apps/{appId}:
+    $ref: ./paths/apps@{appId}.yaml
+  /apps/{appId}/api-keys:
+    $ref: ./paths/apps@{appId}@apiKeys.yaml
+  /apps/{appId}/api-keys/{keyId}/invalidate:
+    $ref: ./paths/apps@{appId}@apiKeys@{keyId}@invalidate.yaml
+
+components:
+  securitySchemes:
+    UserToken:
+      $ref: components/security/UserToken.yaml

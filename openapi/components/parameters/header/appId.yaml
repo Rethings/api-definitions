@@ -1,0 +1,9 @@
+name: X-APP-ID
+in: header
+description: |
+  App identifier of which need to perform request
+schema:
+  allOf:
+    - $ref: ../../schemas/ResourceId.yaml
+example: app_ZpfOJBDj8bmJLghJILiTXuWOpKWo
+required: true

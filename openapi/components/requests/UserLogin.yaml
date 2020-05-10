@@ -1,0 +1,23 @@
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          description: User's email address
+          type: string
+          format: email
+        password:
+          description: Users's password
+          type: string
+          format: password
+        keepLoggedIn:
+          description: Keep the session indefinitely.
+          type: boolean
+          default: false
+
+description: Consumer resource
+required: true

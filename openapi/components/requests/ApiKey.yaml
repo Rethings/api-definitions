@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/ApiKey.yaml
+description: API Key resource
+required: true

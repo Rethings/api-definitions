@@ -1,0 +1,7 @@
+name: deviceId
+in: path
+description: The Device's identifier
+required: true
+schema:
+  $ref: ../../schemas/ResourceId.yaml
+example: dev_9XajmB3tdd6jxpCdYwnyIlxm2WzI
