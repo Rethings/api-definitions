@@ -1,0 +1,65 @@
+type: object
+required:
+  - name
+  - mqttTopic
+properties:
+  id:
+    description: |
+      Widget's identifier.
+    allOf:
+      - $ref: ./ResourceId.yaml
+    example: wdgt_9XajmB3tdd6jxpCdYwnyIlxm2WzI
+    readOnly: true
+  name:
+    description: |
+      Widget's name.
+    type: string
+    maxLength: 255
+    example: Family Car
+  type:
+    description: |
+      Widget's type.
+
+      Use this field to let your App know what data to expect.
+    type: string
+    maxLength: 255
+    example: location
+  tags:
+    description: Widget's tags
+    type: array
+    maxItems: 10
+    items:
+      type: string
+      minLength: 1
+      maxLength: 20
+    example:
+      - gps
+      - location
+      - dashboard:sample-dashboard
+  metadata:
+    allOf:
+        - $ref: ./Metadata.yaml
+    example:
+      garage: 1
+  mqttTopic:
+    description: |
+      MQTT Topic to which the Widget should publish to or subscribe from.
+    type: string
+    maxLength: 1000
+  createdAt:
+    description: Widget's creation timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  updatedAt:
+    description: Widget's last update timestamp
+    readOnly: true
+    allOf:
+      - $ref: ./Timestamp.yaml
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    items:
+      allOf:
+        - $ref: ./Links/SelfLink.yaml

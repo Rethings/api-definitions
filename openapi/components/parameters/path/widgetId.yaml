@@ -1,0 +1,7 @@
+name: widgetId
+in: path
+description: The Widget's identifier
+required: true
+schema:
+  $ref: ../../schemas/ResourceId.yaml
+example: wdgt_9XajmB3tdd6jxpCdYwnyIlxm2WzI

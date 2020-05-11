@@ -1,0 +1,37 @@
+parameters:
+  - $ref: ../../components/parameters/header/appId.yaml
+post:
+  tags:
+    - Widgets
+  summary: Create a Widget
+  operationId: CreateWidget
+  description: |
+    Create a widget.
+  requestBody:
+    $ref: ../../components/requests/Widget.yaml
+  responses:
+    '201':
+      description: A widget was created successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/Widget.yaml
+get:
+  tags:
+    - Widgets
+  summary: List owned widgets
+  description: |
+    List the widgets owned by the currently logged Consumer.
+  operationId: ListWidgets
+  parameters:
+    - $ref: ../../components/parameters/query/collectionLimit.yaml
+    - $ref: ../../components/parameters/query/collectionOffset.yaml
+  responses:
+    '200':
+      description: A list of widgets was retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/Widget.yaml

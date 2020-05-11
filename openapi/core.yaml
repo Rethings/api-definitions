@@ -37,6 +37,14 @@ tags:
       MQTT credentials will simply be `username:device` with empty password and the Device ID as MQTT Client ID.
 
       The message should contain the App's `reset` type API Key, wherein the App is where the device is integrated to.
+  - name: Widgets
+    description: |
+      A Widget pertains to the UI representation of the data or an interface for the Consumer to controler their
+      devices.
+
+      Example:
+      - A map widget to interpret the location of a GPS
+      - A slider widget to control the light's brightness
 
 security:
   - ConsumerJWT: []
@@ -54,6 +62,10 @@ paths:
     $ref: ./paths/devices@{deviceId}.yaml
   /devices/{deviceId}/mqtt-credentials:
     $ref: ./paths/devices@{deviceId}@mqttCredentials.yaml
+  /extensions/widgets:
+    $ref: ./paths/extensions/widgets.yaml
+  /extensions/widgets/{widgetId}:
+    $ref: ./paths/extensions/widgets@{widgetId}.yaml
 
 components:
   securitySchemes:
@@ -61,3 +73,13 @@ components:
       $ref: components/security/ConsumerJWT.yaml
     SecretApiKey:
       $ref: components/security/SecretApiKey.yaml
+
+
+x-tagGroups:
+  - name: Core
+    tags:
+      - Consumers
+      - Devices
+  - name: Extensions
+    tags:
+      - Widgets

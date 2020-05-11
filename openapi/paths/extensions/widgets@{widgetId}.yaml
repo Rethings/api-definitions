@@ -1,0 +1,43 @@
+parameters:
+  - $ref: ../../components/parameters/header/appId.yaml
+  - $ref: ../../components/parameters/path/widgetId.yaml
+get:
+  tags:
+    - Widgets
+  summary: Retrieve a Widget
+  description: |
+    Retrieve a widget.
+  operationId: GetWidget
+  responses:
+    '200':
+      description: A widget was retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/Widget.yaml
+put:
+  tags:
+    - Widgets
+  summary: Update a Widget
+  operationId: UpdateWidget
+  description: |
+    Update a widget.
+  requestBody:
+    $ref: ../../components/requests/Widget.yaml
+  responses:
+    '200':
+      description: A widget was updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/Widget.yaml
+delete:
+  tags:
+    - Widgets
+  summary: Delete a Widget
+  operationId: DeleteWidget
+  description: |
+    Delete a widget
+  responses:
+    '204':
+      description: A widget was deleted successfully
