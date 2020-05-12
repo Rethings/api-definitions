@@ -22,9 +22,6 @@ servers:
   - url: 'wss://mq.rethings.io'
     description: MQTT over Websockets Server
 tags:
-  - name: Users
-    description: |
-      A User represents a person who can login to Rethings.
   - name: Apps
     description: |
       Integrations of Consumers with Rethings are represented by an App.
@@ -56,14 +53,6 @@ tags:
       owner can register the device.
 
 paths:
-  /users:
-    $ref: ./paths/users.yaml
-  /users/login:
-    $ref: ./paths/users@login.yaml
-  /users/logout:
-    $ref: ./paths/users@logout.yaml
-  /users/{userId}:
-    $ref: ./paths/users@{userId}.yaml
   /apps:
     $ref: ./paths/apps.yaml
   /apps/{appId}:
@@ -73,7 +62,10 @@ paths:
   /apps/{appId}/api-keys/{keyId}/invalidate:
     $ref: ./paths/apps@{appId}@apiKeys@{keyId}@invalidate.yaml
 
+security:
+  - UserJWT: []
+
 components:
   securitySchemes:
-    UserToken:
-      $ref: components/security/UserToken.yaml
+    UserJWT:
+      $ref: components/security/UserJWT.yaml

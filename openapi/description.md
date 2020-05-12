@@ -12,3 +12,13 @@ management mobile application.
 
 
 <!-- ReDoc-Inject: <security-definitions> -->
+
+# Users
+
+A user represents a person that can log in to Rethings.
+
+Rethings makes use of external party identity provider. All endpoint authentications hereon are based 
+on signed JWT.
+
+### How would Rethings map the User to the resources they own?
+We pull the `sub` claim from JWT. This claim serves as the identifier of the User.

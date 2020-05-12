@@ -1,8 +1,6 @@
 parameters:
   - $ref: ../components/parameters/path/appId.yaml
 get:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: Retrieve an App
@@ -17,8 +15,6 @@ get:
           schema:
             $ref: ../components/schemas/App.yaml
 put:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: Update an App
@@ -35,8 +31,6 @@ put:
           schema:
             $ref: ../components/schemas/App.yaml
 delete:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: Deactivate an App

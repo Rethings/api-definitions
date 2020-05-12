@@ -1,6 +1,4 @@
 post:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: Create an App
@@ -20,8 +18,6 @@ post:
           schema:
             $ref: ../components/schemas/App.yaml
 get:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: List Apps

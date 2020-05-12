@@ -22,9 +22,6 @@ servers:
   - url: 'wss://mq.rethings.io'
     description: MQTT over Websockets Server
 tags:
-  - name: Consumers
-    description: |
-      A Consumer represents a person that ultimately uses the products and apps built with Rethings.
   - name: Devices
     description: |
       A Device represents a physical entity that connects to the internet. This could be household appliances,
@@ -50,12 +47,6 @@ security:
   - ConsumerJWT: []
   - SecretApiKey: []
 paths:
-  /consumers:
-    $ref: ./paths/consumers.yaml
-  /consumers/{consumerId}:
-    $ref: ./paths/consumers@{consumerId}.yaml
-  /consumers/{consumerId}/mqtt-credentials:
-    $ref: ./paths/consumers@{consumerId}@mqttCredentials.yaml
   /devices:
     $ref: ./paths/devices.yaml
   /devices/{deviceId}:

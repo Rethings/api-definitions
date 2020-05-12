@@ -1,7 +1,0 @@
-name: consumerId
-in: path
-description: The Consumer's identifier
-required: true
-schema:
-  $ref: ../../schemas/ResourceId.yaml
-example: con_9XajmB3tdd6jxpCdYwnyIlxm2WzI

@@ -1,6 +1,0 @@
-description: |
-  Access Tokens created by signing in to Rethings.
-
-  Usage format: `Bearer <Access Token>`
-type: http
-scheme: bearer

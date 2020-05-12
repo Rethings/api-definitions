@@ -1,7 +1,0 @@
-description: |
-  A user was logged in successfully with `rethings_session` cookie.
-headers:
-  Set-Cookie:
-    schema:
-      type: string
-      example: rethings_session=abcde12345; Path=/; HttpOnly

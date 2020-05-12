@@ -1,8 +1,6 @@
 parameters:
   - $ref: ../components/parameters/path/appId.yaml
 get:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: Retrieve an App's API Keys
@@ -23,8 +21,6 @@ get:
               $ref: ../components/schemas/ApiKey.yaml
 
 post:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: Create an App's API Key

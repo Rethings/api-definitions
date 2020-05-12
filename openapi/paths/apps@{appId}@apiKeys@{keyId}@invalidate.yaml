@@ -3,8 +3,6 @@ parameters:
   - $ref: ../components/parameters/path/keyId.yaml
 
 delete:
-  security:
-    - UserToken: []
   tags:
     - Apps
   summary: Invalidate an App's API Key

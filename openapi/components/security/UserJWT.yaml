@@ -1,0 +1,7 @@
+description: |
+  Create a JWT via Auth0.
+
+  Usage format: `Bearer <JWT>`
+type: http
+scheme: bearer
+bearerFormat: JWT
