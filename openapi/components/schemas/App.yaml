@@ -21,13 +21,7 @@ properties:
 
       This value will be used to verify the Consumer's JWT.
     type: string
-  type:
-    description: The Apps's type
-    type: string
-    enum:
-      - live
-      - sandbox
-    readOnly: true
+    writeOnly: true
   status:
     description: App's status
     type: string
@@ -60,5 +54,4 @@ properties:
     items:
       anyOf:
         - $ref: ./Links/SelfLink.yaml
-        - $ref: ./Links/SandboxLink.yaml
-        - $ref: ./Links/LiveLink.yaml
+        - $ref: ./Links/AppApiKeysLink.yaml

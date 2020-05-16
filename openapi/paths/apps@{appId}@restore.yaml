@@ -1,0 +1,16 @@
+parameters:
+  - $ref: ../components/parameters/path/appId.yaml
+post:
+  tags:
+    - Apps
+  summary: Restore a Deactivated App
+  operationId: RestoreApp
+  description: |
+    Restore a deactivated app.
+  responses:
+    '200':
+      description: An app was restored successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/App.yaml

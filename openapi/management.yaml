@@ -17,10 +17,6 @@ info:
 servers:
   - url: 'https://api.rethings.io'
     description: API Server
-  - url: 'mqtts://mq.rethings.io'
-    description: MQTT Server
-  - url: 'wss://mq.rethings.io'
-    description: MQTT over Websockets Server
 tags:
   - name: Apps
     description: |
@@ -57,10 +53,12 @@ paths:
     $ref: ./paths/apps.yaml
   /apps/{appId}:
     $ref: ./paths/apps@{appId}.yaml
+  /apps/{appId}/restore:
+    $ref: ./paths/apps@{appId}@restore.yaml
   /apps/{appId}/api-keys:
     $ref: ./paths/apps@{appId}@apiKeys.yaml
-  /apps/{appId}/api-keys/{keyId}/invalidate:
-    $ref: ./paths/apps@{appId}@apiKeys@{keyId}@invalidate.yaml
+  /apps/{appId}/api-keys/{keyId}:
+    $ref: ./paths/apps@{appId}@apiKeys@{keyId}.yaml
 
 security:
   - UserJWT: []

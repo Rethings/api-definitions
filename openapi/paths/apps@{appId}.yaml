@@ -38,5 +38,9 @@ delete:
   description: |
     Deactivate an app.
   responses:
-    '204':
+    '200':
       description: An app was deactivated successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/App.yaml

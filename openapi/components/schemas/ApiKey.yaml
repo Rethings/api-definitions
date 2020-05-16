@@ -18,7 +18,7 @@ properties:
     enum:
       - secret
       - reset
-  description:
+  name:
     description: API Key's label or description
     type: string
     maxLength: 255
