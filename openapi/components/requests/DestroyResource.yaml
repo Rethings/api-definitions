@@ -1,0 +1,14 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        force:
+          type: boolean
+          description: |
+            Whether the action should be a **force delete**.
+
+            Note that, if set to `true`, the action is irreversible.
+          default: false
+description: Destroy a resource
+required: true

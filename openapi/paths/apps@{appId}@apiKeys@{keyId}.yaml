@@ -20,10 +20,12 @@ get:
 delete:
   tags:
     - Apps
-  summary: Invalidate an App's API Key
+  summary: Invalidate or Delete an App's API Key
   description: |
-    Invalidate an app's API key.
-  operationId: InvalidateApiKey
+    Invalidate or delete an app's API key.
+  operationId: DestroyApiKey
+  requestBody:
+    $ref: ../components/requests/DestroyResource.yaml
   responses:
     '204':
-      description: An API key was invalidated successfully
+      description: An API key was invalidated or deleted successfully
