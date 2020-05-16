@@ -2,6 +2,21 @@ parameters:
   - $ref: ../components/parameters/path/appId.yaml
   - $ref: ../components/parameters/path/keyId.yaml
 
+get:
+  tags:
+    - Apps
+  summary: Retrieve an App's API Key
+  description: |
+    Retrieve an app's API key.
+  operationId: GetAppApiKey
+  responses:
+    '200':
+      description: A app's API key was retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ApiKey.yaml
+
 delete:
   tags:
     - Apps
