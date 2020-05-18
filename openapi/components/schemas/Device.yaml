@@ -31,22 +31,6 @@ properties:
       - appliance
       - rgb
       - brightness
-  publishableTopics:
-    description: MQTT Topics where publishing from the Device is allowed
-    type: array
-    items:
-      type: string
-      example:
-        - dev_9XajmB3tdd6jxpCdYwnyIlxm2WzI/stream
-    readOnly: true
-  subscribableTopics:
-    description: MQTT Topics where subscribing from the Device is allowed
-    type: array
-    items:
-      type: string
-      example:
-        - dev_9XajmB3tdd6jxpCdYwnyIlxm2WzI/control
-    readOnly: true
   createdAt:
     description: Device's registration/creation timestamp
     readOnly: true
