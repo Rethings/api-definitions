@@ -37,6 +37,9 @@ delete:
   operationId: DestroyApp
   description: |
     Deactivate or delete an app.
+
+
+    **CAUTION: Deactivating or deleting an app will deactivate all registered devices of the consumers.**
   requestBody:
     $ref: ../components/requests/DestroyResource.yaml
   responses:
